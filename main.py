@@ -50,15 +50,22 @@ def get_expensive(prices):
     for i in range(len(prices)):
         if prices[i] > max:
             max = prices[i]
-            a = i + 2
+            a = i
     return a
 
 # Read data from file
 f = open("data.csv")
 data = f.read()
-products = get_products(data)
-# print(products)
-prices = get_prices(data)
-# print(prices)
 
-print(get_expensive(prices))
+# get list of products
+products = get_products(data)
+
+# get list of prices
+prices = get_prices(data)
+
+# get the index of the most expensive
+idx = get_expensive(prices)
+
+
+print(f'Cost of the most expensive product: {prices[idx]}')
+print(f'Most expensive product: {products[idx]}')
